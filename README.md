@@ -50,3 +50,8 @@ fn app() -> Element {
     })
 }
 ```
+
+## Running the examples
+```bash
+cargo run --features examples --example <example_name>
+```

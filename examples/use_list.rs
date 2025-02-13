@@ -17,5 +17,12 @@ fn main() {
     dioxus_logger::init(Level::INFO).unwrap();
     console_error_panic_hook::set_once();
 
-    dioxus::launch(app);
+    #[cfg(feature = "examples")]
+    {
+        dioxus::launch(app)
+    }
+    #[cfg(not(feature = "examples"))]
+    {
+        println!(r#"run with "--features example" to see the output"#)
+    }
 }

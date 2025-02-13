@@ -49,9 +49,3 @@ fn app() -> Element {
         onmounted: move |event| list.mounted.onmounted(event)
     })
 }
-```
-
-## Running the examples
-```bash
-cargo run --features examples --example <example_name>
-```

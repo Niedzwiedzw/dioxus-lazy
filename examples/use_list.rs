@@ -1,5 +1,5 @@
-use dioxus::prelude::*;
 use dioxus_lazy::{lazy, Direction, UseList};
+use dioxus_lib::prelude::*;
 use dioxus_logger::tracing::Level;
 
 fn app() -> Element {
@@ -16,13 +16,5 @@ fn app() -> Element {
 fn main() {
     dioxus_logger::init(Level::INFO).unwrap();
     console_error_panic_hook::set_once();
-
-    #[cfg(feature = "examples")]
-    {
-        dioxus::launch(app)
-    }
-    #[cfg(not(feature = "examples"))]
-    {
-        println!(r#"run with "--features example" to see the output"#)
-    }
+    dioxus_web::launch::launch_cfg(app, dioxus_web::Config::new())
 }
